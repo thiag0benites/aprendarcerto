@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231128 17:50:56.002" rpa="false" schemaversion="4">
+<suite id="s1" name="Dashboard" source="C:\Users\server-thiago\Documents\aprendarcerto\features\dashboard.robot">
+<test id="s1-t1" name="Cadastrar usuario" line="13">
+<kw name="Dado que acesso o sistema" library="contexto_steps" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${DATA_URL}</arg>
+<arg>${DATA_BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231128 17:50:56.480" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<status status="PASS" starttime="20231128 17:50:56.478" endtime="20231128 17:51:01.185"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231128 17:51:01.185" endtime="20231128 17:51:04.024"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PAGE_HOME}[txt_user]</arg>
+<arg>30</arg>
+<arg>Erro ao tentar carregar a home page!</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231128 17:51:04.024" endtime="20231128 17:51:04.791"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231128 17:51:05.502" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231128 17:51:04.791" endtime="20231128 17:51:05.502"/>
+</kw>
+<status status="PASS" starttime="20231128 17:50:56.478" endtime="20231128 17:51:05.502"/>
+</kw>
+<kw name="Dados que digito o usuario &quot;${DATA_LOGIN_USER}&quot; e a senha &quot;${DATA_LOGIN_PWD}&quot;" library="login_steps" sourcename="Dados que digito o usuario &quot;${user}&quot; e a senha &quot;${pwd}&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PAGE_LOGIN}[txt_user]</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231128 17:51:05.504" level="INFO">Typing text 'Admin' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20231128 17:51:05.504" endtime="20231128 17:51:05.702"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PAGE_LOGIN}[txt_pwd]</arg>
+<arg>${pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231128 17:51:05.704" level="INFO">Typing text 'admin123' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20231128 17:51:05.703" endtime="20231128 17:51:05.933"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231128 17:51:06.180" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231128 17:51:05.933" endtime="20231128 17:51:06.180"/>
+</kw>
+<status status="PASS" starttime="20231128 17:51:05.503" endtime="20231128 17:51:06.180"/>
+</kw>
+<kw name="Quando efetuo o click em Login" library="login_steps">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${PAGE_LOGIN}[btn_login]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231128 17:51:06.188" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231128 17:51:06.186" endtime="20231128 17:51:06.370"/>
+</kw>
+<status status="PASS" starttime="20231128 17:51:06.185" endtime="20231128 17:51:06.370"/>
+</kw>
+<kw name="Entao valida a home do usuario" library="login_steps">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PAGE_DASH}[nav_menu]</arg>
+<arg>30</arg>
+<arg>Erro ao efetuar o login!</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231128 17:51:06.378" endtime="20231128 17:51:08.310"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231128 17:51:08.860" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231128 17:51:08.310" endtime="20231128 17:51:08.861"/>
+</kw>
+<status status="PASS" starttime="20231128 17:51:06.377" endtime="20231128 17:51:08.861"/>
+</kw>
+<kw name="Entao fecho o sistema" library="contexto_steps" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231128 17:51:08.862" endtime="20231128 17:51:11.649"/>
+</kw>
+<status status="PASS" starttime="20231128 17:51:08.862" endtime="20231128 17:51:11.650"/>
+</kw>
+<status status="PASS" starttime="20231128 17:50:56.477" endtime="20231128 17:51:11.650"/>
+</test>
+<doc>Teste de login</doc>
+<status status="PASS" starttime="20231128 17:50:56.004" endtime="20231128 17:51:11.653"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Dashboard">Dashboard</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
